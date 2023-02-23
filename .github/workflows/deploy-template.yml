@@ -19,16 +19,16 @@ jobs:
           fetch-depth: 0
 
       - name: Use Node.js 18.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 18.x
-        
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build -- --configuration=production
-
+       - uses: pnpm/action-setup@v2
+         name: Install pnpm
+         id: pnpm-install
+         with:
+           version: 7
+           run_install: false
+           
       - name: sonarcloud scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
