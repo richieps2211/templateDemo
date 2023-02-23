@@ -14,7 +14,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Use Node.js 18.x
         uses: actions/setup-node@v2
@@ -27,7 +29,7 @@ jobs:
       - name: Build
         run: npm run build -- --configuration=production
 
-      - name: Analyze with SonarCloud
+      - name: sonarcloud scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.ANGULAR_GITHUB_TOKEN }}
