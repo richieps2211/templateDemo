@@ -1,15 +1,4 @@
 {
     "version": "1",
-    "build": [
-        {
-            "src": "dist/template-demo/**",
-            "dest": "@vercel/static-build"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/index.html"
-        }
-    ]
+    "buildCommand": "next build"
 }
