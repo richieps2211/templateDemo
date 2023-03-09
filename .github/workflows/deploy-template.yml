@@ -1,4 +1,4 @@
-name: Deploy to Vercel and Analyze with SonarCloud - project framework angular - Git hub actions
+name: Chapter Academy - DevOps
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
