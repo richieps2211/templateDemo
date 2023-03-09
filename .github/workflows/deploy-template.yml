@@ -3,8 +3,13 @@ env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-  STATUS_JOB: ${{ job.status }}
-on: push
+
+on:
+  pull_request:
+    types:
+     - closed
+    branches:
+      - master
 
 jobs:
   build-and-Deploy:
@@ -59,6 +64,6 @@ jobs:
         with: 
           status: ${{ job.status }}
           channel: '#devops-chapter'
-          message: Build {{ env.GITHUB_REF_NAME }} termino en {{ env.STATUS_JOB }}
+          message: Se construyo bajo la rama {{ env.GITHUB_REF_NAME }} termino en ${{ job.status }}
         if: always()
       
