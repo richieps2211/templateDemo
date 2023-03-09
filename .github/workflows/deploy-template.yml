@@ -59,6 +59,6 @@ jobs:
         with: 
           status: ${{ job.status }}
           channel: '#devops-chapter'
-          message: Build {{ env.GITHUB_REF_NAME }} termino en "$STATUS_JOB"
+          message: Build {{ env.GITHUB_REF_NAME }} termino en {{ env.STATUS_JOB }}
         if: always()
       
