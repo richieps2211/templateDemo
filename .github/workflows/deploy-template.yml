@@ -60,5 +60,5 @@ jobs:
           status: ${{ job.status }}
           channel: '#devops-chapter'
           message: Build {{ env.GITHUB_REF_NAME }} termino en sucess
-        if: always()
+        if: sucess()
       
